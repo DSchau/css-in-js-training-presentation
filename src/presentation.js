@@ -4,6 +4,7 @@ import { Deck } from "spectacle";
 
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
+import "web-animations-js";
 import "normalize.css";
 
 import makeSlideDeck from "./slides";

@@ -4,7 +4,7 @@ import marked from "marked";
 import dasherize from "lodash.kebabcase";
 import { CodeSlide } from "@dschau/spectacle-code-slide";
 
-import * as INTRO from "./01-intro";
+import * as INTRO from "./01-introduction-to-css-and-js";
 
 export default function makeSlides() {
   return [INTRO].map((Slides, rootIndex) => {
