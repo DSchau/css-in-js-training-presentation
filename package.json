@@ -1,0 +1,26 @@
+{
+  "name": "css-in-js-training-presentation",
+  "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@dschau/spectacle-code-slide": "~0.4.0",
+    "lodash.kebabcase": "~4.1.1",
+    "marked": "~0.3.19",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "spectacle-scripts": "2.0.0"
+  },
+  "scripts": {
+    "precommit": "pretty-quick --staged",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "husky": "~0.14.3",
+    "prettier": "~1.11.1",
+    "pretty-quick": "~1.4.1"
+  }
+}
