@@ -1,10 +1,10 @@
-import React from "react";
-import { Notes, Slide, SlideSet } from "spectacle";
-import marked from "marked";
-import dasherize from "lodash.kebabcase";
-import { CodeSlide } from "@dschau/spectacle-code-slide";
+import React from 'react';
+import { Notes, Slide, SlideSet } from 'spectacle';
+import marked from 'marked';
+import dasherize from 'lodash.kebabcase';
+import { CodeSlide } from '@dschau/spectacle-code-slide';
 
-import * as INTRO from "./01-introduction-to-css-and-js";
+import * as INTRO from './01-introduction-to-css-and-js';
 
 export default function makeSlides() {
   return [INTRO].map((Slides, rootIndex) => {
@@ -30,11 +30,11 @@ export default function makeSlides() {
               <Notes>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: marked((Props.notes || "").trim())
+                    __html: marked((Props.notes || '').trim())
                   }}
                 />
               </Notes>
-              {typeof Content === "function" && <Content />}
+              {typeof Content === 'function' && <Content />}
             </Slide>
           );
         })}
