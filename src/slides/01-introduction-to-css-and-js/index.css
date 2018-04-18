@@ -1,0 +1,12 @@
+.button {
+  background-color: blue;
+}
+
+.hover-button {
+  background-color: blue;
+  margin-bottom: 20px;
+}
+
+.hover-button:hover {
+  background-color: white;
+}
