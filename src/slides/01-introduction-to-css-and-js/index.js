@@ -22,8 +22,6 @@ import tadaIcon from 'asturur-noto-emoji/svg/emoji_u1f389.svg';
 import thinkingIcon from 'asturur-noto-emoji/svg/emoji_u1f914.svg';
 import flushedIcon from 'asturur-noto-emoji/svg/emoji_u1f633.svg';
 
-import exampleImage from './assets/example-image.jpg';
-
 import {
   Avatar,
   CodeSandboxLogo,
@@ -91,13 +89,39 @@ export const Technologies = () => (
   </Layout>
 );
 
+export const Building = () => (
+  <div>
+    <Heading size={2} caps textColor="white">
+      What we'll be building
+    </Heading>
+    <List>
+      {[
+        'Buttons',
+        'Forms',
+        'Headers',
+        'Footers',
+        'Components of a larger blogging application'
+      ].map((item, index) => (
+        <Appear key={item}>
+          <ListItem textColor="white">{item}</ListItem>
+        </Appear>
+      ))}
+    </List>
+  </div>
+);
+
+Building.Props = {
+  bgImage: require('./assets/legos-optimized.jpeg'),
+  bgDarken: 0.75
+};
+
 export const IntroInlineStyles = Intro('What CSS in JS Is');
 
 export const InlineStyles = () => (
   <CodePane
     lang="jsx"
     source={require('./assets/inline-style').default}
-    textSize={24}
+    textSize={32}
   />
 );
 
@@ -133,7 +157,7 @@ export const StyledComponents = () => (
   <CodePane
     lang="jsx"
     source={require('./assets/styled-components').default}
-    textSize={24}
+    textSize={32}
   />
 );
 
@@ -154,7 +178,7 @@ export const StyledComponentsHowItWorks = () => (
     <StyledCodePane
       lang="js"
       source="styled.div, styled.button, styled.h1, ..."
-      textSize={24}
+      textSize={32}
     />
     <DownIcon size={16} style={{ margin: '1rem 0' }} />
     <Emoji ariaLabel="Magic sparkles" icon={magicIcon} size={128} />
@@ -168,7 +192,7 @@ export const StyledComponentsHowItWorks = () => (
 }
 </style>
     `.trim()}
-      textSize={24}
+      textSize={32}
     />
   </Container>
 );
@@ -178,7 +202,7 @@ export const MagicExplanation = () => (
     <CodePane
       lang="js"
       source={require('./assets/insert-rule').default}
-      textSize={24}
+      textSize={32}
     />
   </Container>
 );
@@ -188,12 +212,12 @@ export const ThemeExample = () => (
     <CodePane
       lang="jsx"
       source={require('./assets/theme').THEME}
-      textSize={24}
+      textSize={32}
     />
     <CodePane
       lang="jsx"
       source={require('./assets/theme').EXAMPLE}
-      textSize={24}
+      textSize={32}
       style={{ marginTop: 20 }}
     />
   </Container>
@@ -204,12 +228,12 @@ export const MediaQueryExample = () => (
     <CodePane
       lang="jsx"
       source={require('./assets/helper').TRUNCATE}
-      textSize={24}
+      textSize={32}
     />
     <CodePane
       lang="jsx"
       source={require('./assets/helper').EXAMPLE}
-      textSize={24}
+      textSize={32}
       style={{ marginTop: 20 }}
     />
   </Container>
@@ -234,7 +258,7 @@ export default function Button({ className }) {
   return <button style={{ backgroundColor: 'red' }} className={className}>Click me</button>
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
     />
     <InlineStyleButtonComponent />
   </div>
@@ -254,7 +278,7 @@ export default function CustomButton() {
   return <Button className="button" />
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
     />
     <CodePane
       lang="css"
@@ -263,7 +287,7 @@ export default function CustomButton() {
   background-color: blue;
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
       style={{ marginTop: 20 }}
     />
   </div>
@@ -287,7 +311,7 @@ export default function CustomButton() {
   return <Button className="button" />
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
     />
     <CodePane
       lang="css"
@@ -296,7 +320,7 @@ export default function CustomButton() {
   background-color: blue !important;
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
       style={{ marginTop: 20 }}
     />
   </div>
@@ -330,7 +354,7 @@ export const NotAsPowerful = () => (
   background-color: white;
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
     />
   </div>
 );
@@ -349,7 +373,7 @@ export const VendorPrefixing = () => (
   <CodePane
     lang="jsx"
     source={require('./assets/vendor-prefixing').default}
-    textSize={24}
+    textSize={32}
   />
 );
 
@@ -388,7 +412,7 @@ export const CognitiveShift = () => (
   text-transform: uppercase;
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
     />
     <CodePane
       lang="jsx"
@@ -404,7 +428,7 @@ export default function Button() {
   }}>Click me</button>
 }
     `.trim()}
-      textSize={24}
+      textSize={32}
       style={{ marginTop: 20 }}
     />
   </div>
@@ -419,7 +443,7 @@ export const WeCanDoBetter = () => (
 export const IntroGettingStarted = Intro('Set up');
 
 export const InstallInstructions = () => (
-  <CodePane source={`npm install styled-components --save`} textSize={24} />
+  <CodePane source={`npm install styled-components --save`} textSize={32} />
 );
 
 export const PackageExample = () => (
@@ -433,7 +457,7 @@ export const PackageExample = () => (
       null,
       2
     )}
-    textSize={24}
+    textSize={32}
     lang="json"
   />
 );
