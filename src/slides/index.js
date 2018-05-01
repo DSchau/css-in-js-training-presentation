@@ -1,5 +1,5 @@
 import React from 'react';
-import { Notes, Slide, SlideSet } from 'spectacle';
+import { Appear, List, ListItem, Notes, Slide, SlideSet } from 'spectacle';
 import marked from 'marked';
 import dasherize from 'lodash.kebabcase';
 import { CodeSlide } from '@dschau/spectacle-code-slide';
@@ -22,11 +22,7 @@ export default function makeSlides() {
             );
           }
           return (
-            <Slide
-              id={id}
-              key={iteratorKey}
-              {...Content.Props || Content.props}
-            >
+            <Slide key={iteratorKey} {...Content.Props || Content.props}>
               <Notes>
                 <div
                   dangerouslySetInnerHTML={{
@@ -34,7 +30,7 @@ export default function makeSlides() {
                   }}
                 />
               </Notes>
-              {typeof Content === 'function' && <Content />}
+              {typeof Content === 'function' ? <Content /> : Content}
             </Slide>
           );
         })}

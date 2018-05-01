@@ -1,10 +1,13 @@
 import React from 'react';
 import {
+  Appear,
   Code,
   CodePane,
   ComponentPlayground,
   Heading,
   Layout,
+  List,
+  ListItem,
   Link,
   Fill,
   Text
@@ -58,9 +61,24 @@ const InlineStyleButtonComponent = ({ className, style }) => (
   </button>
 );
 
-export const IntroAll = Intro();
+export const IntroAll = Intro('Introduction');
 
 export const Wave = () => <Emoji ariaLabel="Hello!" icon={waveIcon} />;
+
+export const Prerequisites = () => (
+  <div>
+    <Heading size={2} caps>
+      Prerequisites
+    </Heading>
+    <List>
+      {['Basic CSS', 'Basic JavaScript', 'Basic React'].map((item, index) => (
+        <Appear key={item}>
+          <ListItem>{item}</ListItem>
+        </Appear>
+      ))}
+    </List>
+  </div>
+);
 
 export const Technologies = () => (
   <Layout>
@@ -91,6 +109,7 @@ export const InlineStylesPlayground = () => (
   <ComponentPlayground
     lang="jsx"
     code={require('./assets/inline-style-playground').default}
+    textSize={48}
   />
 );
 

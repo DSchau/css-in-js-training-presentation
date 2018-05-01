@@ -7,7 +7,7 @@ import createTheme from 'spectacle/lib/themes/default';
 import 'web-animations-js';
 import 'normalize.css';
 
-import makeSlideDeck from './slides';
+import makeSlides from './slides';
 
 const theme = createTheme(
   {
@@ -26,12 +26,12 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        progress="bar"
+        progress="none"
         transition={['slide']}
         transitionDuration={500}
         theme={theme}
       >
-        {makeSlideDeck()}
+        {makeSlides()}
       </Deck>
     );
   }

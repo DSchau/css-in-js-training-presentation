@@ -16,10 +16,16 @@ const SpinningImage = styled(Image)`
   animation: ${SPIN} infinite 20s linear;
 `;
 
-export function ReactLogo() {
+const Title = styled.h1`
+  font-size: 32px;
+  color: white;
+`;
+
+export function ReactLogo({ showTitle = true }) {
   return (
     <Container>
       <SpinningImage src={logo} />
+      {showTitle && <Title>React</Title>}
     </Container>
   );
 }

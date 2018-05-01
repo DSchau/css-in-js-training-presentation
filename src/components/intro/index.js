@@ -21,7 +21,7 @@ export const Intro = subtitle => {
         with styled-components and React
       </Text>
       {subtitle && (
-        <Heading size={3} textColor="secondary" caps style={{ marginTop: 20 }}>
+        <Heading size={3} textColor="secondary" style={{ marginTop: 20 }}>
           {subtitle}
         </Heading>
       )}
