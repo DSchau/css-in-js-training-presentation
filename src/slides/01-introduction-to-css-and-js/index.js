@@ -26,6 +26,7 @@ import {
   Avatar,
   CodeSandboxLogo,
   Emoji,
+  Example,
   Intro,
   ReactLogo,
   StyledComponentsLogo
@@ -51,12 +52,14 @@ const StyledCodePane = styled(CodePane)`
 `;
 
 const InlineStyleButtonComponent = ({ className, style }) => (
-  <button
-    style={{ backgroundColor: 'red', marginTop: 20, ...style }}
-    className={className}
-  >
-    Click me
-  </button>
+  <Example>
+    <button
+      style={{ backgroundColor: 'red', marginTop: 20, ...style }}
+      className={className}
+    >
+      Click me
+    </button>
+  </Example>
 );
 
 export const IntroAll = Intro('Introduction');
@@ -119,7 +122,7 @@ export const IntroInlineStyles = Intro('What CSS in JS Is');
 
 export const InlineStyles = () => (
   <CodePane
-    lang="jsx"
+    lang="html"
     source={require('./assets/inline-style').default}
     textSize={32}
   />
@@ -129,29 +132,31 @@ InlineStyles.Props = {
   bgColor: '#2a2734'
 };
 
-export const InlineStylesPlayground = () => (
-  <ComponentPlayground
+export const InlineStylesReact = () => (
+  <CodePane
     lang="jsx"
-    code={require('./assets/inline-style-playground').default}
-    textSize={48}
+    source={require('./assets/inline-style-react').default}
+    textSize={32}
   />
 );
 
-export const Spectrum = () => (
-  <Layout style={{ display: 'flex', alignItems: 'center' }}>
-    <Fill>Inline Styles</Fill>
-    <Fill>
-      <RightIcon size={16} />
-    </Fill>
-    <Fill>Inline style libraries</Fill>
-    <Fill>
-      <RightIcon size={16} />
-    </Fill>
-    <Fill>Injection libraries</Fill>
-  </Layout>
-);
+InlineStylesReact.Props = {
+  bgColor: '#2a2734'
+};
 
-export const StyledComponentsSection = () => <StyledComponentsLogo />;
+export const StyledComponentsSection = () => (
+  <div>
+    <StyledComponentsLogo />
+    <Appear>
+      <CodePane
+        lang="markup"
+        source={`npm install styled-components --save`}
+        textSize={32}
+        style={{ marginTop: '2rem' }}
+      />
+    </Appear>
+  </div>
+);
 
 export const StyledComponents = () => (
   <CodePane
@@ -207,48 +212,51 @@ export const MagicExplanation = () => (
   </Container>
 );
 
-export const ThemeExample = () => (
-  <Container>
-    <CodePane
-      lang="jsx"
-      source={require('./assets/theme').THEME}
-      textSize={32}
-    />
-    <CodePane
-      lang="jsx"
-      source={require('./assets/theme').EXAMPLE}
-      textSize={32}
-      style={{ marginTop: 20 }}
-    />
-  </Container>
-);
+// export const ThemeExample = () => (
+//   <Container>
+//     <CodePane
+//       lang="jsx"
+//       source={require('./assets/theme').THEME}
+//       textSize={32}
+//     />
+//     <CodePane
+//       lang="jsx"
+//       source={require('./assets/theme').EXAMPLE}
+//       textSize={32}
+//       style={{ marginTop: 20 }}
+//     />
+//   </Container>
+// );
 
-export const MediaQueryExample = () => (
-  <Container>
-    <CodePane
-      lang="jsx"
-      source={require('./assets/helper').TRUNCATE}
-      textSize={32}
-    />
-    <CodePane
-      lang="jsx"
-      source={require('./assets/helper').EXAMPLE}
-      textSize={32}
-      style={{ marginTop: 20 }}
-    />
-  </Container>
-);
+// export const MediaQueryExample = () => (
+//   <Container>
+//     <CodePane
+//       lang="jsx"
+//       source={require('./assets/helper').TRUNCATE}
+//       textSize={32}
+//     />
+//     <CodePane
+//       lang="jsx"
+//       source={require('./assets/helper').EXAMPLE}
+//       textSize={32}
+//       style={{ marginTop: 20 }}
+//     />
+//   </Container>
+// );
 
-export const InlineStyleExampleExtend = () => (
-  <Link href="https://codesandbox.io/s/zxkz6owmv3" target="_blank">
-    <CodeSandboxLogo />
-  </Link>
-);
+export const IntroWhatCSSInJsIsNot = Intro('What CSS in JS is Not');
 
-export const IntroWhatCSSInJsIsNot = Intro(); // Intro('What CSS in JS Is Not');
+// export const InlineStyleExampleExtend = () => (
+//   <Link href="https://codesandbox.io/s/zxkz6owmv3" target="_blank">
+//     <CodeSandboxLogo />
+//   </Link>
+// );
 
 export const InlineStyleButton = () => (
   <div>
+    <Heading size={2} fit>
+      Inline styled button
+    </Heading>
     <CodePane
       lang="jsx"
       source={`
@@ -259,6 +267,7 @@ export default function Button({ className }) {
 }
     `.trim()}
       textSize={32}
+      style={{ marginTop: '1rem' }}
     />
     <InlineStyleButtonComponent />
   </div>
@@ -266,6 +275,9 @@ export default function Button({ className }) {
 
 export const InlineStyleButtonOverride = () => (
   <div>
+    <Heading size={2} fit>
+      Attempt to override
+    </Heading>
     <CodePane
       lang="jsx"
       source={`
@@ -279,6 +291,7 @@ export default function CustomButton() {
 }
     `.trim()}
       textSize={32}
+      style={{ marginTop: '1rem' }}
     />
     <CodePane
       lang="css"
@@ -294,11 +307,19 @@ export default function CustomButton() {
 );
 
 export const InlineButtonStyleOverrideResult = () => (
-  <InlineStyleButtonComponent className="button" />
+  <div>
+    <Heading size={2} fit>
+      Attempt failed!
+    </Heading>
+    <InlineStyleButtonComponent className="button" />
+  </div>
 );
 
 export const InlineStyleButtonOverrideFixed = () => (
   <div>
+    <Heading size={2} fit>
+      Try, try again!
+    </Heading>
     <CodePane
       lang="jsx"
       source={`
@@ -312,6 +333,7 @@ export default function CustomButton() {
 }
     `.trim()}
       textSize={32}
+      style={{ marginTop: '1rem' }}
     />
     <CodePane
       lang="css"
@@ -327,7 +349,12 @@ export default function CustomButton() {
 );
 
 export const InlineButtonStyleOverrideResultFixed = () => (
-  <InlineStyleButtonComponent style={{ backgroundColor: 'blue' }} />
+  <div>
+    <Heading size={2} fit>
+      It's fixed!
+    </Heading>
+    <InlineStyleButtonComponent style={{ backgroundColor: 'blue' }} />
+  </div>
 );
 
 export const Tada = () => (
@@ -336,13 +363,15 @@ export const Tada = () => (
 
 export const ThisSucks = () => (
   <Heading size={1} fit caps>
-    This kind of sucks
+    This is not ideal
   </Heading>
 );
 
 export const NotAsPowerful = () => (
   <div>
-    <button className="hover-button">Hover me</button>
+    <Heading size={2} fit>
+      Hover effects
+    </Heading>
     <CodePane
       lang="css"
       source={`
@@ -356,6 +385,28 @@ export const NotAsPowerful = () => (
     `.trim()}
       textSize={32}
     />
+    <Example>
+      <button className="hover-button">Hover me</button>
+    </Example>
+  </div>
+);
+
+export const MediaQueries = () => (
+  <div>
+    <Heading size={2} fit>
+      Media Queries
+    </Heading>
+    <CodePane
+      lang="css"
+      source={`
+@media only screen and (min-width: 768px) {
+  .button {
+    max-width: 200px;
+  }
+}
+    `.trim()}
+      textSize={32}
+    />
   </div>
 );
 
@@ -365,38 +416,7 @@ export const ThinkingFace = () => (
 
 export const NotAsPowerfulSucks = () => (
   <Heading size={1} caps fit>
-    This also kind of sucks
-  </Heading>
-);
-
-export const VendorPrefixing = () => (
-  <CodePane
-    lang="jsx"
-    source={require('./assets/vendor-prefixing').default}
-    textSize={32}
-  />
-);
-
-export const VendorPrefixingDemo = () => (
-  <ComponentPlayground
-    lang="jsx"
-    code={`
-function GrayImage({ src }) {
-  return <img src={src} style={{ filter: 'grayscale(0.5)', maxWidth: '100%' }} />;
-}
-
-render(<GrayImage src={imageSrc} />)
-  `.trim()}
-    scope={{
-      imageSrc:
-        'https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-    }}
-  />
-);
-
-export const AutoPrefixingIsNotIdeal = () => (
-  <Heading size={1} fit caps>
-    Autoprefixing kind of sucks
+    This also is not ideal
   </Heading>
 );
 
@@ -459,6 +479,20 @@ export const PackageExample = () => (
     )}
     textSize={32}
     lang="json"
+  />
+);
+
+export const NodeModulesExample = () => (
+  <CodePane
+    source={`
+node_modules/
+  styled-components/
+    dist/
+      styled-components.js
+    package.json
+    `.trim()}
+    textSize={32}
+    lang="markup"
   />
 );
 

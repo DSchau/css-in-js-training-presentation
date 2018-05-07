@@ -15,10 +15,16 @@ const StyledImage = styled(Image)`
   min-height: 100px;
 `;
 
-export function CodeSandboxLogo() {
+const Title = styled.h1`
+  font-size: 24px;
+  color: white;
+`;
+
+export function CodeSandboxLogo({ title = 'Code Sandbox' }) {
   return (
     <Container>
       <StyledImage src={logo} />
+      <Title>{title}</Title>
     </Container>
   );
 }

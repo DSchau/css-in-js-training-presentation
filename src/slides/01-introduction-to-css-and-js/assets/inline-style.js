@@ -1,7 +1,5 @@
 export default `
-import React from 'react';
-
-export default function Button() {
-  return <button style={{ backgroundColor: 'red' }}>Click me</button>;
-}
+<div>
+  <button style="background-color: red;">Click me</button>
+</div>
 `.trim();
