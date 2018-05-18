@@ -1,0 +1,66 @@
+.button {
+  font-size: 32px;
+  padding: 16px 32px;
+  margin: 16px;
+  background-color: red;
+}
+
+.padding {
+  font-size: 32px;
+  padding: 16px 32px;
+  margin: 16px;
+}
+
+.button.animate {
+  transition: 300ms ease-in-out;
+}
+
+.button:hover {
+  background-color: blue;
+}
+
+.button:active {
+  background-color: white;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+
+  transition: 300ms ease-in-out;
+}
+
+.box:hover {
+  transform: rotate(180deg) scale(1.5);
+}
+
+h1.blink {
+  animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-top: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}

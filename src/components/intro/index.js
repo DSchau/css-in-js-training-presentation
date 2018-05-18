@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-export const Intro = subtitle => {
+export const Intro = Subtitle => {
   const Inner = () => (
     <Container>
       <Heading size={1} fit caps lineHeight={1} textColor="secondary">
@@ -20,10 +20,14 @@ export const Intro = subtitle => {
       <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
         with styled-components and React
       </Text>
-      {subtitle && (
-        <Heading size={3} textColor="secondary" style={{ marginTop: 20 }}>
-          {subtitle}
-        </Heading>
+      {typeof Subtitle === 'function' ? (
+        <Subtitle />
+      ) : (
+        Subtitle && (
+          <Heading size={3} textColor="secondary" style={{ marginTop: 20 }}>
+            {Subtitle}
+          </Heading>
+        )
       )}
       <Link href="https://dustinschau.com" target="_blank" rel="noopener">
         <Avatar />

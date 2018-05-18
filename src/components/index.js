@@ -1,4 +1,5 @@
 export * from './avatar';
+export * from './button';
 export * from './code-sandbox-logo';
 export * from './emoji';
 export * from './example';
