@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-export const Intro = Subtitle => {
+export const Intro = (Subtitle, id) => {
   const Inner = () => (
     <Container>
       <Heading size={1} fit caps lineHeight={1} textColor="secondary">
@@ -38,7 +38,8 @@ export const Intro = Subtitle => {
   Inner.Props = {
     bgImage:
       'https://images.pexels.com/photos/92905/pexels-photo-92905.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    bgDarken: 0.6
+    bgDarken: 0.6,
+    ...(id ? { id } : {})
   };
 
   return Inner;

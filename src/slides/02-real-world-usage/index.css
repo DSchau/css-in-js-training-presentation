@@ -64,3 +64,55 @@ h1.blink {
   background-color: #f8d7da;
   border-color: #f5c6cb;
 }
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert2 {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  background-color: #eee;
+  color: black;
+  width: 100%;
+}
+
+.alert2:first-child {
+  margin-right: 1rem;
+}
+
+.alert2.danger {
+  background-color: red;
+  color: white;
+}
+
+.alert-container {
+  display: flex;
+}
+
+.ellipsis {
+  display: block;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1rem auto;
+}
+
+.red {
+  color: red;
+  background-color: white;
+}
+
+.italic {
+  font-style: italic;
+}

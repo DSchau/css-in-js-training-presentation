@@ -62,7 +62,7 @@ const InlineStyleButtonComponent = ({ className, style }) => (
   </Example>
 );
 
-export const IntroAll = Intro('Introduction');
+export const IntroAll = Intro('Introduction', 'introduction');
 
 export const Wave = () => <Emoji ariaLabel="Hello!" icon={waveIcon} />;
 
@@ -118,7 +118,10 @@ Building.Props = {
   bgDarken: 0.75
 };
 
-export const IntroInlineStyles = Intro('What CSS in JS Is');
+export const IntroInlineStyles = Intro(
+  'What CSS in JS Is',
+  'what-css-in-js-is'
+);
 
 export const InlineStyles = () => (
   <CodePane
@@ -244,7 +247,10 @@ export const MagicExplanation = () => (
 //   </Container>
 // );
 
-export const IntroWhatCSSInJsIsNot = Intro('What CSS in JS is Not');
+export const IntroWhatCSSInJsIsNot = Intro(
+  'What CSS in JS is Not',
+  'what-css-in-js-is-not'
+);
 
 // export const InlineStyleExampleExtend = () => (
 //   <Link href="https://codesandbox.io/s/zxkz6owmv3" target="_blank">
@@ -460,7 +466,7 @@ export const WeCanDoBetter = () => (
   </Heading>
 );
 
-export const IntroGettingStarted = Intro('Set up');
+export const IntroGettingStarted = Intro('Set up', 'setup');
 
 export const InstallInstructions = () => (
   <CodePane source={`npm install styled-components --save`} textSize={32} />

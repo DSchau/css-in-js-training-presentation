@@ -4,11 +4,12 @@ import marked from 'marked';
 import dasherize from 'lodash.kebabcase';
 import { CodeSlide } from '@dschau/spectacle-code-slide';
 
+import * as IntroAll from './00-intro';
 import * as Intro from './01-introduction-to-css-and-js';
 import * as RealWorldUsage from './02-real-world-usage';
 
 export default function makeSlides() {
-  return [Intro, RealWorldUsage].map((Slides, rootIndex) => {
+  return [IntroAll, Intro, RealWorldUsage].map((Slides, rootIndex) => {
     return (
       <SlideSet key={rootIndex}>
         {Object.keys(Slides).map((key, index) => {

@@ -7,6 +7,7 @@ import {
   CodePane,
   Fill,
   Layout,
+  Image,
   List,
   ListItem,
   Link,
@@ -44,6 +45,11 @@ const Grid = styled.div`
   grid-template-columns: 50% 50%;
 `;
 
+const GridTri = styled.div`
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -69,7 +75,8 @@ const Input = styled.input.attrs({
 `;
 
 export const YourFirstStyledComponentIntro = Intro(
-  'Your first styled component'
+  'Your first styled component',
+  'your-first-styled-component'
 );
 
 export const UiMockup = () => (
@@ -96,6 +103,18 @@ export const UiMockup = () => (
     </ButtonGroup>
   </GridContainer>
 );
+
+export const BloggingApp = () => null;
+
+BloggingApp.Props = {
+  bgImage: require('./images/blogging-app.png')
+};
+
+export const BloggingAppNewPost = () => null;
+
+BloggingAppNewPost.Props = {
+  bgImage: require('./images/blogging-app-new-post.png')
+};
 
 export const QuickAPIRevisit = () => (
   <CodePane
@@ -150,7 +169,16 @@ export const PrimaryButton = () => (
   </GridContainer>
 );
 
-export const TraditionalCSSIntro = Intro('Traditional CSS');
+export const LessonOneCodeSandbox = () => (
+  <Link
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
+    target="_blank"
+  >
+    <CodeSandboxLogo />
+  </Link>
+);
+
+export const TraditionalCSSIntro = Intro('Traditional CSS', 'traditional-css');
 
 export const WhatDoIMean = () => (
   <Heading size={2} fit caps>
@@ -289,39 +317,21 @@ export const UiMockupRoundTwo = () => (
   </GridContainer>
 );
 
-export const LessonOneCodeSandbox = () => (
+export const LessonTwoCodeSandbox = () => (
   <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-real-world-usage"
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/03-traditional-css"
     target="_blank"
   >
     <CodeSandboxLogo />
   </Link>
 );
 
-export const InjectingPropsIntro = Intro('Injecting Props');
+export const InjectingPropsIntro = Intro('Injecting Props', 'injecting-props');
 
 export const WhatAreProps = () => (
   <Heading size={2} fit caps>
     What are props?
   </Heading>
-);
-
-export const PropsExample = () => (
-  <div>
-    <Heading size={2}>Hello Component</Heading>
-    <CodePane
-      lang="jsx"
-      source={`
-import React from 'react';
-
-export default function Hello(props) {
-  return <h1>Hello {props.name}</h1>;
-}
-    `.trim()}
-      textSize={32}
-    />
-    <Hello name="World" />
-  </div>
 );
 
 export const PropsInDetail = () => (
@@ -351,6 +361,24 @@ export function App() {
       textSize={32}
       style={{ marginTop: '1rem' }}
     />
+  </div>
+);
+
+export const PropsExample = () => (
+  <div>
+    <Heading size={2}>Hello Component</Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import React from 'react';
+
+export default function Hello(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+    `.trim()}
+      textSize={32}
+    />
+    <Hello name="World" />
   </div>
 );
 
@@ -503,18 +531,128 @@ export default function App() {
   </div>
 );
 
-export const LessonTwo = () => (
+export const LessonPropInjcetion = () => (
   <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-real-world-usage"
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/04-prop-injection"
     target="_blank"
   >
     <CodeSandboxLogo />
   </Link>
 );
 
-export const InheritanceIntro = Intro('Inheritance and Composition');
+export const InheritanceIntro = Intro(
+  'Inheritance and Composition',
+  'inheritance-and-composition'
+);
 
-export const AnimationIntro = Intro('Animation');
+export const TraditionalCSSComposition = () => (
+  <Heading size={2} caps>
+    Traditional CSS Composition
+  </Heading>
+);
+
+export const TraditionalCSSCompositionExample = () => (
+  <div>
+    <Heading size={2}>CSS Composition</Heading>
+    <CodePane
+      lang="css"
+      source={`
+.alert {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  background-color: #EEE;
+}
+
+.alert.danger {
+  background-color: red;
+  color: white;
+}
+    `.trim()}
+      textSize={32}
+    />
+    <div className="alert-container">
+      <div className="alert2">Regular alert</div>
+      <div className="alert2 danger">Danger alert</div>
+    </div>
+  </div>
+);
+
+export const SimpleComposition = () => (
+  <div>
+    <Heading size={4} textColor="secondary">
+      styled-components composition
+    </Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import styled from 'styled-components';
+
+export const Alert = styled.div\`
+  // existing styles
+\`;
+
+export const AlertDanger = styled(Alert)\`
+  // overridden styles
+\`;
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+export const CssHelperComposition = () => (
+  <div>
+    <Heading size={2}>css helper</Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import { css } from 'styled-components';
+
+export const TEXT_OVERFLOW = (width = 250) => css\`
+  width: \${width}px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+\`;
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+export const CssHelperCompositionUsage = () => (
+  <div>
+    <Heading size={2}>Consuming css helper</Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import React from 'react';
+
+import { TEXT_OVERFLOW } from '../util/mixins';
+
+export const Alert = styled.div\`
+  width: 250px;
+
+  \${TEXT_OVERFLOW(250)};
+\`;
+    `.trim()}
+      textSize={32}
+    />
+    <div className="alert ellipsis">I will be cut off after a single line!</div>
+  </div>
+);
+
+export const LessonInheritanceAndComposition = () => (
+  <Link
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/05-inheritance-and-composition"
+    target="_blank"
+  >
+    <CodeSandboxLogo />
+  </Link>
+);
+
+export const AnimationIntro = Intro('Animation', 'animation');
 
 export const NativeAnimation = () => (
   <Player
@@ -658,7 +796,7 @@ export const TheKeyframesHelper = () => (
       <CodePane
         lang="jsx"
         source={`
-import styled from 'styled-components';
+import { keyframes } from 'styled-components';
 
 export const BLINK = keyframes\`
   to {
@@ -670,6 +808,40 @@ export const BLINK = keyframes\`
       />
     </Layout>
   </div>
+);
+
+export const AnimationHowItWorks = () => (
+  <Container style={{ marginTop: '-10rem' }}>
+    <StyledCodePane
+      lang="js"
+      source={`
+import { keyframes } from 'styled-components';
+
+export const BLINK = keyframes\`
+  to {
+    visibility: hidden;
+  }
+\`;
+      `.trim()}
+      textSize={32}
+    />
+    <DownIcon size={16} style={{ margin: '1rem 0' }} />
+    <Emoji ariaLabel="Magic sparkles" icon={magicIcon} size={128} />
+    <DownIcon size={16} style={{ margin: '1rem 0' }} />
+    <StyledCodePane
+      lang="jsx"
+      source={`
+<style data-styled-components="">
+@keyframes ktEnzR {
+  to{
+    visibility:hidden;
+  }
+}
+</style>
+    `.trim()}
+      textSize={32}
+    />
+  </Container>
 );
 
 export const UsingTheAnimation = () => (
@@ -696,20 +868,23 @@ const Title = styled.h1\`
 
 export const AnimationCodeSandbox = () => (
   <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-real-world-usage"
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/06-animation"
     target="_blank"
   >
     <CodeSandboxLogo />
   </Link>
 );
 
-// TODO: insert diagram here
-
 export const UsageWithExistingLibrariesIntro = Intro(
-  'Usage with Existing Libraries'
+  'Usage with Existing Libraries',
+  'usage-with-existing-libraries'
 );
 
-export const ComponentLibrariesExamples = () => null; // bootstrap, foundation, material-ui, semantic-ui
+export const ComponentLibrariesExamples = () => null;
+
+ComponentLibrariesExamples.Props = {
+  bgImage: require('./images/libraries.jpeg')
+};
 
 export const BootstrapExample = () => (
   <div>
@@ -732,6 +907,22 @@ export const BootstrapExample = () => (
     `.trim()}
       textSize={32}
     />
+  </div>
+);
+
+export const BootstrapExampleHtml = () => (
+  <div>
+    <Heading size={2}>Resulting Style</Heading>
+    <div className="alert alert-success">
+      A simple success alert—check it out!
+    </div>
+    <div className="alert alert-danger">
+      A simple danger alert—check it out!
+    </div>
+    <div className="alert alert-warning">
+      A simple warning alert—check it out!
+    </div>
+    <div className="alert alert-info">A simple info alert—check it out!</div>
   </div>
 );
 
@@ -805,7 +996,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Alert = styled.div.attrs({
-  className: props => \`\${props.className} alert \${props.type || 'info'}\`
+  className: props => \`\${props.className} alert alert-\${props.type || 'info'}\`
 })\`;
     `.trim()}
       textSize={32}
@@ -835,4 +1026,135 @@ export function App() {
   </div>
 );
 
-export const InjectingGlobals = Intro('Injecting Globals');
+export const UsageWithExistingLibrariesSandbox = () => (
+  <Link
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/07-usage-with-existing-libraries"
+    target="_blank"
+  >
+    <CodeSandboxLogo />
+  </Link>
+);
+
+export const InjectingGlobals = Intro('Injecting Globals', 'injecting-globals');
+
+export const ImportantOverride = () => (
+  <div>
+    <Heading size={1} fit>
+      <Code textColor="white">!important</Code>
+    </Heading>
+    <CodePane
+      lang="css"
+      source={`
+p {
+  color: black !important;
+}
+    `.trim()}
+      textSize={32}
+      style={{ marginTop: '1rem' }}
+    />
+  </div>
+);
+
+export const GlobalCSSDiagram = () => (
+  <div>
+    <Heading size={2}>CSS Globals</Heading>
+    <div style={{ display: 'grid', gridTemplateColumns: '50% 50%' }}>
+      <CodePane
+        lang="css"
+        source={`
+p {
+  color: red;
+  background-color: white;
+}
+      `.trim()}
+        textSize={32}
+        style={{ margin: '1rem 0', marginRight: '0.5rem' }}
+      />
+      <CodePane
+        lang="css"
+        source={`
+p {
+  font-style: italic;
+}
+      `.trim()}
+        textSize={32}
+        style={{ margin: '1rem 0' }}
+      />
+    </div>
+    <p className="red italic">
+      This text is red and italic, even though I probably only wanted one or the
+      other
+    </p>
+  </div>
+);
+
+export const StackingStyles = () => (
+  <Image src={require('./images/stacking.png')} />
+);
+
+export const WhenToUse = () => (
+  <Heading size={2} caps>
+    When to use?
+  </Heading>
+);
+
+export const WhenToUseReasons = () => (
+  <List>
+    <ListItem>Unified style across whole app for certain elements</ListItem>
+    <Appear>
+      <ListItem>CSS Resets</ListItem>
+    </Appear>
+    <Appear>
+      <ListItem>Component that cannot be styled</ListItem>
+    </Appear>
+  </List>
+);
+
+export const InjectGlobalApi = () => (
+  <div>
+    <Heading size={2}>injectGlobal</Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import { injectGlobal } from 'styled-components';
+
+injectGlobal\`
+  p {
+    color: red;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+\`;
+
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+export const UseWithCaution = () => (
+  <div>
+    <Heading size={2} caps textColor="black">
+      Use with caution
+    </Heading>
+    <Heading size={4} textColor="black">
+      It's an <Span type="italic">escape hatch</Span>
+    </Heading>
+  </div>
+);
+
+UseWithCaution.Props = {
+  bgColor: 'gold'
+};
+
+export const InjectingGlobalsSandbox = () => (
+  <Link
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/08-injecting-globals"
+    target="_blank"
+  >
+    <CodeSandboxLogo />
+  </Link>
+);
