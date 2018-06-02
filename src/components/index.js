@@ -4,5 +4,6 @@ export * from './code-sandbox-logo';
 export * from './emoji';
 export * from './example';
 export * from './intro';
+export * from './intro-links';
 export * from './react-logo';
 export * from './styled-components-logo';
