@@ -36,7 +36,7 @@ export const AdvancedCSSInJsSectionIntro = () => (
       'Server and Static Rendering',
       'Utilities',
       'Style Objects',
-      'When to Not Use CSS in JS'
+      'When Not To Use CSS in JS'
     ]}
     title="Advanced CSS in JS"
   />

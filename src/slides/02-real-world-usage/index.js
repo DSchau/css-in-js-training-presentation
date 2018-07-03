@@ -14,7 +14,7 @@ import {
   Heading,
   S as Span
 } from 'spectacle';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Player from 'react-player';
 import CommentIcon from 'react-icons/lib/fa/comment';
 
@@ -28,6 +28,7 @@ import {
   Button,
   ButtonGroup,
   CodeSandboxLogo,
+  Conclusion,
   Emoji,
   Example,
   Intro,
@@ -66,6 +67,17 @@ const StyledCode = styled(Code)`
   color: white !important;
 `;
 
+const StyledButton = styled.button`
+  padding: 1rem 2rem;
+  margin: 1rem;
+  background-color: #193441;
+  border-radius: 5px;
+  border: none;
+  color: white;
+
+  transition: 250ms ease-in-out;
+`;
+
 const Hello = ({ name }) => <h1>Hello {name}</h1>;
 
 const Input = styled.input.attrs({
@@ -74,10 +86,50 @@ const Input = styled.input.attrs({
   border: 1px solid blue;
 `;
 
+class StyledButtonInteractive extends React.Component {
+  state = {
+    clicks: 0
+  };
+
+  getStyle(clicks) {
+    switch (clicks) {
+      case 1:
+        return { transform: 'scale(0.6)' };
+      case 2:
+        return { transform: 'scale(1.3)' };
+      case 3:
+        return { backgroundColor: '#204118' };
+      default:
+        return {};
+    }
+  }
+
+  increment = () => {
+    this.setState(prevState => ({
+      clicks: prevState.clicks + 1
+    }));
+  };
+
+  render() {
+    return (
+      <div onClick={this.increment}>
+        <Heading size={2} fit caps>
+          The humble button
+        </Heading>
+        <StyledButton style={this.getStyle(this.state.clicks)}>
+          Click Me
+        </StyledButton>
+      </div>
+    );
+  }
+}
+
 export const YourFirstStyledComponentIntro = Intro(
   'Your first styled component',
   'your-first-styled-component'
 );
+
+export const StyledButtonExample = () => <StyledButtonInteractive />;
 
 export const UiMockup = () => (
   <GridContainer>
@@ -176,6 +228,10 @@ export const LessonOneCodeSandbox = () => (
   >
     <CodeSandboxLogo />
   </Link>
+);
+
+export const YourFirstStyledComponentConclusion = Conclusion(
+  'your-first-styled-component-conclusion'
 );
 
 export const TraditionalCSSIntro = Intro('Traditional CSS', 'traditional-css');

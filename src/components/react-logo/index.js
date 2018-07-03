@@ -21,11 +21,23 @@ const Title = styled.h1`
   color: white;
 `;
 
-export function ReactLogo({ showTitle = true }) {
-  return (
-    <Container>
+export function ReactLogo({ background, showTitle = true }) {
+  const Content = () => (
+    <React.Fragment>
       <SpinningImage src={logo} />
       {showTitle && <Title>React</Title>}
-    </Container>
+    </React.Fragment>
   );
+  if (background) {
+    return (
+      <Container>
+        <Content />
+      </Container>
+    );
+  }
+  return <Content />;
 }
+
+ReactLogo.defaultProps = {
+  background: true
+};

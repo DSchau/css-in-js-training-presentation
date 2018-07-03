@@ -3,6 +3,10 @@ const fs = require('fs-extra');
 const sharp = require('sharp');
 const globby = require('globby');
 
+const EXTENSION_MAP = {
+  jpg: 'jpeg'
+};
+
 const getFiles = src => {
   return globby(path.join(src, '**/*.{jpg,jpeg,gif,png}')).then(files => {
     return files.filter(file => file.indexOf('-optimized') === -1);
@@ -25,7 +29,7 @@ const writeFile = ({ file, quality = 75, size = 1250 }) => {
     if (metadata.width > size) {
       stream = image
         .resize(size)
-        [extension]({ quality })
+        [EXTENSION_MAP[extension] || extension]({ quality })
         .toFile(fileName);
     } else {
       stream = image
