@@ -1,6 +1,18 @@
 import React from 'react';
 
-import { Appear, Code, CodePane, Fill, Heading, Image, Layout, Link, S as Span } from 'spectacle';
+import {
+  Appear,
+  Code,
+  CodePane,
+  Fill,
+  Heading,
+  Image,
+  Layout,
+  Link,
+  List,
+  ListItem,
+  S as Span
+} from 'spectacle';
 import styled from 'styled-components';
 import Player from 'react-player';
 
@@ -10,8 +22,15 @@ import BrowserIcon from 'react-icons/lib/md/web-asset';
 import ServerIcon from 'react-icons/lib/fa/server';
 import screamIcon from 'asturur-noto-emoji/svg/emoji_u1f631.svg';
 import cryIcon from 'asturur-noto-emoji/svg/emoji_u1f62d.svg';
+import fireIcon from 'asturur-noto-emoji/svg/emoji_u1f525.svg';
 
-import { CodeSandboxLogo, Emoji, Intro, PolishedLogo, ReactLogo } from '../../components';
+import {
+  CodeSandboxLogo,
+  Emoji,
+  Intro,
+  PolishedLogo,
+  ReactLogo
+} from '../../components';
 
 export const ThemingIntro = Intro('Theming', 'theming');
 
@@ -26,7 +45,9 @@ export const YouTubeTwitterDarkMode = () => (
 );
 
 export const Customization = () => (
-    <Heading size={2} caps fit>Customization</Heading>
+  <Heading size={2} caps fit>
+    Customization
+  </Heading>
 );
 
 Customization.Props = {
@@ -169,22 +190,26 @@ export const ServerRenderingIntro = Intro(
 export const JspSlide = () => (
   <div>
     <Heading size={2}>JSPs</Heading>
-    <CodePane lang="html" source={`
+    <CodePane
+      lang="html"
+      source={`
 <p>Counting to three:</p>
 <% for (int i=1; i<4; i++) { %>
     <p>This number is <%= i %>.</p>
 <% } %>
 <p>OK.</p>
-    `.trim()} textSize={32} />
+    `.trim()}
+      textSize={32}
+    />
   </div>
 );
 
-export const CrySlide = () => (
-  <Emoji ariaLabel="Dear god no" icon={cryIcon} />
-);
+export const CrySlide = () => <Emoji ariaLabel="Dear god no" icon={cryIcon} />;
 
 export const WhatIsServerRendering = () => (
-  <Heading size={2} caps fit>What is server side rendering?</Heading>
+  <Heading size={2} caps fit>
+    What is server side rendering?
+  </Heading>
 );
 
 WhatIsServerRendering.Props = {
@@ -201,24 +226,129 @@ export const CurrentModel = () => (
           <ReactLogo background={false} showTitle={false} />
         </div>
         <DownIcon />
-        <div><HTMLIcon size={100} /></div>
+        <div>
+          <HTMLIcon size={100} />
+        </div>
         <DownIcon />
-        <div><BrowserIcon size={128} /></div>
+        <div>
+          <BrowserIcon size={128} />
+        </div>
       </Fill>
       <Appear>
         <Fill>
-          <div><ServerIcon size={128} /></div>
+          <div>
+            <ServerIcon size={128} />
+          </div>
           <DownIcon />
           <div style={{ height: 150 }}>
             <ReactLogo background={false} showTitle={false} />
           </div>
           <DownIcon />
-          <div><HTMLIcon size={100} /></div>
+          <div>
+            <HTMLIcon size={100} />
+          </div>
           <DownIcon />
-          <div><BrowserIcon size={128} /></div>
+          <div>
+            <BrowserIcon size={128} />
+          </div>
         </Fill>
       </Appear>
     </Layout>
+  </div>
+);
+
+export const WhyServerRender = () => (
+  <Heading size={2} caps fit>
+    Why server render?
+  </Heading>
+);
+
+WhyServerRender.Props = {
+  bgImage: require('./images/why-optimized.jpg'),
+  bgDarken: 0.5
+};
+
+export const BlazingPerformance = () => (
+  <Heading size={2} caps fit>
+    Maximize Performance
+  </Heading>
+);
+
+BlazingPerformance.Props = {
+  bgImage: require('./images/blazing-optimized.jpg'),
+  bgDarken: 0.5
+};
+
+export const QuickerTTI = () => (
+  <Heading size={2} caps fit>
+    Quicker <Span type="underline">T</Span>ime <Span type="underline">T</Span>o{' '}
+    <Span type="underline">I</Span>nteractive
+  </Heading>
+);
+
+export const SEO = () => (
+  <Heading size={2} caps fit>
+    Search engine Optimization
+  </Heading>
+);
+
+SEO.Props = {
+  bgImage: require('./images/seo-optimized.jpg'),
+  bgDarken: 0.5
+};
+
+export const WhatTheSearchEngineSees = () => (
+  <div>
+    <Heading size={2} fit>
+      Search Engine View
+    </Heading>
+    <CodePane
+      lang="html"
+      source={`
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>Your Awesome Blog</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
+
+    `.trim()}
+      textSize={24}
+    />
+  </div>
+);
+
+export const HowToServerRender = () => (
+  <Heading size={2} caps fit>
+    <Span type="italic">How</Span> to server render?
+  </Heading>
+);
+
+export const MostCommonApproaches = () => (
+  <div>
+    <Heading size={2} fit>
+      Most common approaches
+    </Heading>
+    <List>
+      <ListItem>Roll your own with express/NodeJS backend</ListItem>
+      <Appear>
+        <ListItem>Next.js</ListItem>
+      </Appear>
+      <Appear>
+        <ListItem>GatsbyJS</ListItem>
+      </Appear>
+    </List>
   </div>
 );
 
@@ -234,11 +364,15 @@ export const ServerRenderingCodeSandbox = () => (
 export const UtilitiesIntro = Intro('Utilities', 'utilities');
 
 export const TheJavaScriptInCSSInJs = () => (
-  <Heading size={2}>CSS in <Span type="italic">JavaScript</Span></Heading>
+  <Heading size={2}>
+    CSS in <Span type="italic">JavaScript</Span>
+  </Heading>
 );
 
 export const FullPowerOfNPMEcosystem = () => (
-  <Heading size={2} caps>Libraries, utilities, <Span type="italic">Oh my!</Span></Heading>
+  <Heading size={2} caps>
+    Libraries, utilities, <Span type="italic">Oh my!</Span>
+  </Heading>
 );
 
 FullPowerOfNPMEcosystem.Props = {
@@ -246,9 +380,7 @@ FullPowerOfNPMEcosystem.Props = {
   bgDarken: 0.5
 };
 
-export const PolishedExample = () => (
-  <PolishedLogo />
-);
+export const PolishedExample = () => <PolishedLogo />;
 
 export const UtilitiesCodeSandbox = () => (
   <Link
@@ -263,10 +395,14 @@ export const StyleObjectsIntro = Intro('Style Objects', 'style-objects');
 
 export const AuthoringCSSExample = () => (
   <div>
-    <Heading size={2} style={{ position: 'relative' }}>CSS-like syntax</Heading>
+    <Heading size={2} style={{ position: 'relative' }}>
+      CSS-like syntax
+    </Heading>
     <Layout>
       <Fill marginRight="1rem">
-        <CodePane lang="css" source={`
+        <CodePane
+          lang="css"
+          source={`
 .button {
   background-color: blue;
   color: white;
@@ -276,11 +412,18 @@ export const AuthoringCSSExample = () => (
   background-color: white;
   color: blue;
 }
-        `.replace(/^\n+/, '')} textSize={32} style={{ paddingRight: '1rem' }} />
-        <Heading size={4} textColor="white"><Span type="italic">Traditional</Span> CSS</Heading>
+        `.replace(/^\n+/, '')}
+          textSize={32}
+          style={{ paddingRight: '1rem' }}
+        />
+        <Heading size={4} textColor="white">
+          <Span type="italic">Traditional</Span> CSS
+        </Heading>
       </Fill>
       <Fill>
-        <CodePane lang="jsx" source={`
+        <CodePane
+          lang="jsx"
+          source={`
 const Button = styled.div\`
   background-color: blue;
   color: white;
@@ -290,8 +433,12 @@ const Button = styled.div\`
     color: blue;
   }
 \`;
-        `.trim()} textSize={32} />
-        <Heading size={4} textColor="white">styled-components</Heading>
+        `.trim()}
+          textSize={32}
+        />
+        <Heading size={4} textColor="white">
+          styled-components
+        </Heading>
       </Fill>
     </Layout>
   </div>
@@ -300,7 +447,9 @@ const Button = styled.div\`
 export const StyleObjectExample = () => (
   <div>
     <Heading size={2}>Style as an object</Heading>
-    <CodePane lang="jsx" source={`
+    <CodePane
+      lang="jsx"
+      source={`
 import styled from 'styled-components';
 
 const Button = styled.button({
@@ -309,12 +458,16 @@ const Button = styled.button({
     backgroundColor: 'white'
   }
 });
-    `.trim()} textSize={32} />
+    `.trim()}
+      textSize={32}
+    />
   </div>
 );
 
 export const NotInlineStyles = () => (
-  <Heading size={1} caps fit>style object !== inline styles</Heading>
+  <Heading size={1} caps fit>
+    style object !== inline styles
+  </Heading>
 );
 
 NotInlineStyles.Props = {
@@ -335,7 +488,7 @@ export const WhenToNotUseCSSInJsIntro = Intro(
   'when-not-to-use-css-in-js'
 );
 
-export const Scream = () => <Emoji ariaLabel="Scream!" icon={screamIcon} />
+export const Scream = () => <Emoji ariaLabel="Scream!" icon={screamIcon} />;
 
 export const WhenToNotUseCSSInJsCodeSandbox = () => (
   <Link
