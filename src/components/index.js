@@ -7,6 +7,7 @@ export * from './example';
 export * from './intro';
 export * from './intro-links';
 export * from './logo';
+export * from './mouse-position';
 export * from './polished-logo';
 export * from './react-logo';
 export * from './styled-components-logo';
