@@ -1044,7 +1044,7 @@ export const ExampleComponentDefaults = () => (
 
 export const GeneratingClassname = () => (
   <div>
-    <Heading size={2}>Let's bring it back to bootstrap</Heading>
+    <Heading size={2}>Let's bring it back to Bootstrap</Heading>
     <CodePane
       lang="jsx"
       source={`

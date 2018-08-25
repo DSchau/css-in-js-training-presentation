@@ -25,6 +25,7 @@ import flushedIcon from 'asturur-noto-emoji/svg/emoji_u1f633.svg';
 import {
   Avatar,
   CodeSandboxLogo,
+  Conclusion,
   Emoji,
   Example,
   Intro,

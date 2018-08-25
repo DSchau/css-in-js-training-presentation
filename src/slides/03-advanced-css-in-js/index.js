@@ -182,12 +182,14 @@ export const ThemeHierarchy = () => (
 
 export const ThemingLessonCodeSandbox = () => (
   <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/09-theming"
     target="_blank"
   >
     <CodeSandboxLogo />
   </Link>
 );
+
+export const ThemingConclusion = Conclusion();
 
 export const ServerRenderingIntro = Intro(
   'Server and Static Rendering',
@@ -405,14 +407,29 @@ export const MostCommonApproaches = () => (
   </div>
 );
 
-export const ServerRenderingCodeSandbox = () => (
-  <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
-    target="_blank"
-  >
-    <CodeSandboxLogo />
-  </Link>
+export const TheAPI = () => (
+  <div>
+    <Heading size={2}>The API</Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import { renderToString } from 'react-dom/server';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+
+const sheet = new ServerStyleSheet();
+const html = renderToString(
+  <StyleSheetManager sheet={sheet.instance}>
+    <YourApp />
+  </StyleSheetManager>
 );
+const style = sheet.getStyleElement(); // use this style
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+export const ServerRenderingConclusion = Conclusion();
 
 export const UtilitiesIntro = Intro('Utilities', 'utilities');
 
@@ -728,12 +745,14 @@ World.Props = {
 
 export const UtilitiesCodeSandbox = () => (
   <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
+    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/11-utility-libraries"
     target="_blank"
   >
     <CodeSandboxLogo />
   </Link>
 );
+
+export const UtilitiesConclusion = Conclusion();
 
 export const StyleObjectsIntro = Intro('Style Objects', 'style-objects');
 
