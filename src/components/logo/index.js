@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  max-height: 15vh;
+  max-height: ${props => props.maxHeight || '15vh'};
 `;
 
 const Title = styled.h1`
@@ -21,11 +21,18 @@ const Title = styled.h1`
   color: ${props => props.textColor || 'white'};
 `;
 
-export function Logo({ image, title, showTitle, textColor, ...rest }) {
+export function Logo({
+  image,
+  maxHeight,
+  title,
+  showTitle,
+  textColor,
+  ...rest
+}) {
   return (
     <div style={{ margin: '1rem' }}>
       <Container {...rest}>
-        <Image src={image} />
+        <Image src={image} maxHeight={maxHeight} />
         {showTitle && <Title textColor={textColor}>{title}</Title>}
       </Container>
     </div>

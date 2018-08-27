@@ -15,6 +15,7 @@ import styled from 'styled-components';
 import DownIcon from 'react-icons/lib/fa/chevron-down';
 
 import wearyIcon from 'asturur-noto-emoji/svg/emoji_u1f629.svg';
+import tadaIcon from 'asturur-noto-emoji/svg/emoji_u1f389.svg';
 
 import {
   CodeSandboxLogo,
@@ -44,15 +45,8 @@ export const AlternativeLibrariesExample = () => (
   </Layout>
 );
 
-export const CompetingLibraries = () => (
-  <Heading size={2} caps textColor="white">
-    Competing Libraries
-  </Heading>
-);
-
-CompetingLibraries.Props = {
-  bgImage: require('./images/libraries.jpg'),
-  bgDarken: 0.5
+AlternativeLibrariesExample.Props = {
+  bgColor: 'black'
 };
 
 export const CSSModulesSlide = () => (
@@ -60,14 +54,19 @@ export const CSSModulesSlide = () => (
     showTitle={false}
     image={require('./images/css-modules.png')}
     title="CSS Modules"
+    maxHeight="50vh"
   />
 );
+
+CSSModulesSlide.Props = {
+  bgColor: 'white'
+};
 
 export const CSSModulesWhatIsIt = () => <Heading size={2}>What is it?</Heading>;
 
 export const CSSModulesCSS = () => (
   <div>
-    <Heading size={2}>button.css</Heading>
+    <Heading size={2}>button.module.css</Heading>
     <CodePane
       lang="css"
       source={`
@@ -86,6 +85,10 @@ export const CSSModulesCSS = () => (
     />
   </div>
 );
+
+CSSModulesCSS.Props = {
+  bgColor: 'code'
+};
 
 export const CSSModulesJS = () => (
   <div>
@@ -108,6 +111,10 @@ function Button({ children, primary }) {
     />
   </div>
 );
+
+CSSModulesJS.Props = {
+  bgColor: 'code'
+};
 
 export const CSSModulesUniqueTransform = () => (
   <div>
@@ -136,6 +143,10 @@ export const CSSModulesUniqueTransform = () => (
   </div>
 );
 
+CSSModulesUniqueTransform.Props = {
+  bgColor: 'code'
+};
+
 export const CSSModulesImportStatement = () => (
   <div>
     <CodePane
@@ -158,6 +169,10 @@ export const CSSModulesImportStatement = () => (
     />
   </div>
 );
+
+CSSModulesImportStatement.Props = {
+  bgColor: 'code'
+};
 
 export const CSSModulesLifecycle = () => (
   <div>
@@ -202,21 +217,37 @@ export const CSSInJsIsAutomatedTooling = () => (
 export const AutomatedToolingLibraries = () => (
   <Layout>
     <Fill>
-      <Logo image={require('./images/vue.svg')} title="Vue" />
+      <Logo
+        backgroundColor="white"
+        textColor="black"
+        maxHeight="20vh"
+        image={require('./images/vue.svg')}
+        title="Vue"
+      />
     </Fill>
     <Fill>
-      <Logo image={require('./images/angular.svg')} title="Angular" />
+      <Logo
+        backgroundColor="white"
+        textColor="black"
+        maxHeight="20vh"
+        image={require('./images/angular.svg')}
+        title="Angular"
+      />
     </Fill>
     <Fill>
       <Logo
         backgroundColor="white"
         textColor="black"
         image={require('./images/css-modules.png')}
-        title="CSS Modules"
+        maxHeight="25vh"
       />
     </Fill>
   </Layout>
 );
+
+AutomatedToolingLibraries.Props = {
+  bgColor: 'white'
+};
 
 export const WhatIsAutomatedTooling = () => (
   <Heading size={2} caps fit>
@@ -229,14 +260,140 @@ WhatIsAutomatedTooling.Props = {
   bgDarken: 0.5
 };
 
-export const AutomatedToolingCodeSandbox = () => (
-  <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
-    target="_blank"
-  >
-    <CodeSandboxLogo />
-  </Link>
+export const UsingToolsToYourAdvantage = () => (
+  <Heading size={2} caps fit>
+    Using tools to your advantage
+  </Heading>
 );
+
+UsingToolsToYourAdvantage.Props = {
+  bgImage: require('./images/tooling-optimized.jpg'),
+  bgDarken: 0.5
+};
+
+export const VueExample = () => null;
+
+VueExample.Props = {
+  lang: 'markup',
+  code: `
+<template>
+  <button class="button" v-on:click="handleClick()">Click me</Button>
+</template>
+
+<script>
+export default {
+  methods: {
+    handleClick() {
+      alert('clicked');
+    }
+  }
+}
+</script>
+
+<style scoped>
+.button {
+  color: red;
+}
+</style>
+  `.trim(),
+  ranges: [
+    { title: 'Vue SFC', loc: [0, 50] },
+    { loc: [1, 2] },
+    { loc: [14, 19] },
+    { title: 'scoped attribute 👌' }
+  ]
+};
+
+export const AngularExample = () => null;
+
+AngularExample.Props = {
+  lang: 'typescript',
+  code: `
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: \`<div><h1 class="message">Hello world</h1></div>\`,
+  styleUrls: ['./app.css']
+})
+export class AppComponent {}
+  `.trim(),
+  ranges: [
+    { title: 'Angular styleUrls', loc: [0, 50] },
+    { loc: [4, 5] },
+    { loc: [5, 6] },
+    { title: 'Neat!' }
+  ]
+};
+
+export const AngularCssExample = () => (
+  <div>
+    <Heading size={2}>app.css</Heading>
+    <CodePane
+      lang="css"
+      source={`
+.message {
+  color: red;
+}
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+AngularCssExample.Props = {
+  bgColor: 'code'
+};
+
+export const TheGeneralApproach = () => (
+  <Heading size={2} caps fit>
+    The general approach
+  </Heading>
+);
+
+TheGeneralApproach.Props = {
+  bgImage: require('./images/approach-optimized.jpg'),
+  bgDarken: 0.5
+};
+
+export const Approach = () => (
+  <div>
+    <Heading size={3} textColor="secondary" fit>
+      Write traditional CSS
+    </Heading>
+    <DownIcon color="white" style={{ margin: '1rem' }} />
+    <Heading size={3} textColor="secondary" fit>
+      Build tooling scopes selectors (unique hash)
+    </Heading>
+    <DownIcon color="white" style={{ margin: '1rem' }} />
+    <Heading size={3} textColor="secondary" fit>
+      Encapsulated CSS to the component{' '}
+      <Emoji size={24} icon={tadaIcon} ariaLabel="tada" />
+    </Heading>
+  </div>
+);
+
+export const UseWhatsAvailableToYou = () => (
+  <Heading size={2} caps fit>
+    Use the available tools
+  </Heading>
+);
+
+UseWhatsAvailableToYou.Props = {
+  bgImage: require('./images/blocks-optimized.jpg'),
+  bgDarken: 0.5
+};
+
+// export const AutomatedToolingCodeSandbox = () => (
+//   <Link
+//     href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
+//     target="_blank"
+//   >
+//     <CodeSandboxLogo />
+//   </Link>
+// );
+
+export const AutomatedToolingConclusion = Conclusion();
 
 export const LibrariesOutsideReactIntro = Intro(
   'Libraries Outside React',

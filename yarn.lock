@@ -32,9 +32,9 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@dschau/spectacle-code-slide@~0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@dschau/spectacle-code-slide/-/spectacle-code-slide-0.4.0.tgz#080603344a2f551d46b66f44c5f0286020e6bc66"
+"@dschau/spectacle-code-slide@~0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@dschau/spectacle-code-slide/-/spectacle-code-slide-0.5.2.tgz#7df677a69db8d638c9a1a21bf3a30bf6da6a8cc1"
   dependencies:
     component-raf "^1.2.0"
     component-tween "^1.2.0"
