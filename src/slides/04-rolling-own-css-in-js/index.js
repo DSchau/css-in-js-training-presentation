@@ -5,6 +5,7 @@ import {
   CodePane,
   Fill,
   Heading,
+  Image,
   Layout,
   Link,
   List,
@@ -16,12 +17,15 @@ import DownIcon from 'react-icons/lib/fa/chevron-down';
 
 import wearyIcon from 'asturur-noto-emoji/svg/emoji_u1f629.svg';
 import tadaIcon from 'asturur-noto-emoji/svg/emoji_u1f389.svg';
+import sweatIcon from 'asturur-noto-emoji/svg/emoji_u1f605.svg';
 
 import {
   CodeSandboxLogo,
   Conclusion,
   Emoji,
+  EmotionLogo,
   Intro,
+  JssLogo,
   Logo
 } from '../../components';
 
@@ -395,9 +399,9 @@ UseWhatsAvailableToYou.Props = {
 
 export const AutomatedToolingConclusion = Conclusion();
 
-export const LibrariesOutsideReactIntro = Intro(
-  'Libraries Outside React',
-  'libraries-outside-react'
+export const OtherLibrariesIntro = Intro(
+  'Alternative Libraries',
+  'alternative-libraries'
 );
 
 export const Mind = () => null;
@@ -407,23 +411,255 @@ Mind.Props = {
   bgDarken: 0.5
 };
 
-export const LibrariesOutsideReactCodeSandbox = () => (
-  <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
-    target="_blank"
-  >
-    <CodeSandboxLogo />
-  </Link>
-);
-
-export const OtherLibrariesIntro = Intro(
-  'Alternative Libraries',
-  'alternative-libraries'
-);
-
 export const WearySlide = () => (
   <Emoji ariaLabel="Weary, concerned" icon={wearyIcon} />
 );
+
+export const ChoiceIsGood = () => (
+  <Heading size={2} caps fit>
+    Choice is good!
+  </Heading>
+);
+
+export const Emotion = () => <EmotionLogo showTitle={true} />;
+
+Emotion.Props = {
+  bgColor: 'white'
+};
+
+export const EmotionSyntax = () => (
+  <div>
+    <Heading size={2} fit>
+      objects or string literals!
+    </Heading>
+    <Layout>
+      {[
+        `
+import styled from 'react-emotion';
+
+const Container = styled.div({
+  display: 'flex',
+  alignItems: 'center'
+});
+          `.trim(),
+        `
+import styled from 'react-emotion';
+
+const Container = styled.div\`
+  display: flex;
+  align-items: center;
+\`;
+          `.trim()
+      ].map(snippet => (
+        <Fill key={snippet} style={{ margin: '0.25em' }}>
+          <CodePane lang="jsx" source={snippet} textSize={32} />
+        </Fill>
+      ))}
+    </Layout>
+  </div>
+);
+
+EmotionSyntax.Props = {
+  bgColor: 'code'
+};
+
+export const CssHelper = () => (
+  <div>
+    <Heading size={2} fit>
+      The css prop
+    </Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import React from 'react';
+
+export function App() {
+  return <h1 css={{
+    color: 'red',
+    '@media only screen and (min-width: 480px)': {
+      color: 'blue'
+    }
+  }}>Hello World</h1>
+}
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+CssHelper.Props = {
+  bgColor: 'code'
+};
+
+export const NamingIsHard = () => (
+  <div>
+    <Heading size={2} caps fit>
+      Naming is{' '}
+      <Span type="underline" textColor="white">
+        hard.
+      </Span>
+    </Heading>
+    <Heading size={3} caps fit textColor="secondary">
+      Sometimes it's nice to not think about it!
+    </Heading>
+  </div>
+);
+
+export const ContainerHell = () => (
+  <div>
+    <Heading size={2} fit>
+      Container containers
+    </Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import styled from 'styled-components';
+
+export function App() {
+  return (
+    <Container>
+      <ImageContainer><Image /><ImageContainer>
+      <PostContainer>
+        <Post {...details} />
+      </PostContainer>
+    </Container>
+  );
+}
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+ContainerHell.Props = {
+  bgColor: 'code'
+};
+
+export const ContainerImproved = () => (
+  <div>
+    <Heading size={2} fit>
+      <Span type="italic">Possibly</Span> improved?
+    </Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+export function App() {
+  return (
+    <div css={{ display: 'flex', flexDirection: 'column' }}>
+      <div css={{ maxWidth: '100%' }}><Image /><div>
+      <div css={{ display: 'flex', height: '100%' }}>
+        <Post {...details} />
+      </div>
+    </div>
+  );
+}
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+ContainerImproved.Props = {
+  bgColor: 'code'
+};
+
+export const Jss = () => <JssLogo />;
+
+Jss.Props = {
+  bgColor: 'black'
+};
+
+export const JssPros = () => (
+  <div>
+    <Heading size={2}>JSS Benefits</Heading>
+    <List>
+      <ListItem>Highly pluggable</ListItem>
+      <ListItem>Unopinionated</ListItem>
+      <ListItem>Used by material-ui</ListItem>
+    </List>
+  </div>
+);
+
+export const JssExample = () => (
+  <div>
+    <Heading size={2}>JSS example</Heading>
+    <CodePane
+      lang="jsx"
+      source={`
+import React from 'react'
+import injectSheet from 'react-jss'
+
+const styles = {
+  button: {
+    color: 'green'
+  }
+}
+
+function Button({classes}) {
+  return <button className={classes.button}>My Button</button>
+}
+
+export default injectSheet(styles)(Button)
+    `.trim()}
+      textSize={26}
+    />
+  </div>
+);
+
+JssExample.Props = {
+  bgColor: 'code'
+};
+
+export const OverwhelmedYet = () => (
+  <div>
+    <Heading size={2} caps fit>
+      Feeling overwhelmed?
+    </Heading>
+    <Emoji icon={sweatIcon} ariaLabel="Sweat smile" />
+    <Appear>
+      <Heading size={3} textColor="secondary" caps fit>
+        Don't fret!
+      </Heading>
+    </Appear>
+  </div>
+);
+
+export const CssInJsPlaygroundExample = () => (
+  <div>
+    <Heading size={2} fit>
+      CSS in JS Playground
+    </Heading>
+    <Link
+      href="https://www.cssinjsplayground.com"
+      target="_blank"
+      rel="noopener"
+    >
+      <Image src={require('./images/cssinjsplayground-optimized.png')} />
+    </Link>
+  </div>
+);
+
+CssInJsPlaygroundExample.Props = {
+  bgColor: 'black'
+};
+
+export const OtherLibrariesConclusion = Conclusion();
+
+export const LibrariesOutsideReactIntro = Intro(
+  'Libraries Outside React',
+  'libraries-outside-react'
+);
+
+export const TheRealWorld = () => (
+  <Heading size={2} caps fit>
+    The Real World
+  </Heading>
+);
+
+TheRealWorld.Props = {
+  bgImage: require('./images/boss-optimized.jpg'),
+  bgDarken: 0.5
+};
 
 export const OtherLibrariesImage = () => (
   <div>
@@ -441,7 +677,22 @@ OtherLibrariesImage.Props = {
   bgDarken: 0.5
 };
 
-export const OtherLibrariesCodeSandbox = () => (
+export const OtherLibrariesWhy = () => (
+  <div>
+    <Heading size={2} caps>
+      Why?
+    </Heading>
+    <List>
+      <ListItem>Not using React</ListItem>
+      <ListItem>
+        Reserve right to switch frameworks (e.g. React -> Vue)
+      </ListItem>
+      <ListItem>Want something different, pluggable, and/or unique</ListItem>
+    </List>
+  </div>
+);
+
+export const LibrariesOutsideReactCodeSandbox = () => (
   <Link
     href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
     target="_blank"
@@ -450,4 +701,4 @@ export const OtherLibrariesCodeSandbox = () => (
   </Link>
 );
 
-export const OtherLibrariesConclusion = Conclusion();
+export const OtherLibrariesOutsideReactConclusion = Conclusion();
