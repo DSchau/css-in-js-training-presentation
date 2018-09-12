@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { Image as SpectacleImage } from 'spectacle';
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: ${props => props.backgroundColor || 'black'};
   width: 100%;
   height: 100%;
@@ -17,7 +20,7 @@ const Image = styled.img`
 const Title = styled.h1`
   font-size: 32px;
   margin: 0;
-  margin-top: 0.5rem;
+  margin-top: auto;
   color: ${props => props.textColor || 'white'};
 `;
 

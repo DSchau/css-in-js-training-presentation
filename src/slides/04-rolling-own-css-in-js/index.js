@@ -18,6 +18,7 @@ import DownIcon from 'react-icons/lib/fa/chevron-down';
 import wearyIcon from 'asturur-noto-emoji/svg/emoji_u1f629.svg';
 import tadaIcon from 'asturur-noto-emoji/svg/emoji_u1f389.svg';
 import sweatIcon from 'asturur-noto-emoji/svg/emoji_u1f605.svg';
+import sparklesIcon from 'asturur-noto-emoji/svg/emoji_u2728.svg';
 
 import {
   CodeSandboxLogo,
@@ -26,32 +27,40 @@ import {
   EmotionLogo,
   Intro,
   JssLogo,
-  Logo
+  LinariaLogo,
+  Logo,
+  SampleApp
 } from '../../components';
 
 const CSSModules = styled(Logo)`
   background-color: white;
 `;
 
+const StyledFill = styled(Fill)`
+  > div {
+    height: 100%;
+  }
+`;
+
 export const CSSModulesIntro = Intro('CSS Modules', 'css-modules');
 
-export const AlternativeLibrariesExample = () => (
-  <Layout>
-    <Fill>
-      <Logo image={require('./images/vue.svg')} title="Vue" />
-    </Fill>
-    <Fill>
-      <Logo image={require('./images/angular.svg')} title="Angular" />
-    </Fill>
-    <Fill>
-      <Logo image={require('./images/jquery.svg')} title="jQuery" />
-    </Fill>
-  </Layout>
-);
+// export const AlternativeLibrariesExample = () => (
+//   <Layout>
+//     <Fill>
+//       <Logo image={require('./images/vue.svg')} title="Vue" />
+//     </Fill>
+//     <Fill>
+//       <Logo image={require('./images/angular.svg')} title="Angular" />
+//     </Fill>
+//     <Fill>
+//       <Logo image={require('./images/jquery.svg')} title="jQuery" />
+//     </Fill>
+//   </Layout>
+// );
 
-AlternativeLibrariesExample.Props = {
-  bgColor: 'black'
-};
+// AlternativeLibrariesExample.Props = {
+//   bgColor: 'black'
+// };
 
 export const CSSModulesSlide = () => (
   <CSSModules
@@ -66,7 +75,9 @@ CSSModulesSlide.Props = {
   bgColor: 'white'
 };
 
-export const CSSModulesWhatIsIt = () => <Heading size={2}>What is it?</Heading>;
+export const CSSModulesWhatIsIt = () => (
+  <Heading size={2}>What are they?</Heading>
+);
 
 export const CSSModulesCSS = () => (
   <div>
@@ -157,6 +168,7 @@ export const CSSModulesImportStatement = () => (
       lang="jsx"
       source={`import styles from './button.css';`}
       textSize={32}
+      theme="external"
     />
     <CodePane
       lang="json"
@@ -212,46 +224,73 @@ export const AutomatedToolingIntro = Intro(
   'automated-tooling'
 );
 
+export const AutomatedToolingLibrariesFirst = () => (
+  <Layout>
+    <StyledFill>
+      <Logo
+        backgroundColor="white"
+        textColor="black"
+        maxHeight="17.5vh"
+        image={require('./images/vue.svg')}
+        title="Vue"
+      />
+    </StyledFill>
+    <StyledFill>
+      <Logo
+        backgroundColor="white"
+        textColor="black"
+        maxHeight="22.5vh"
+        image={require('./images/angular.svg')}
+        title="Angular"
+      />
+    </StyledFill>
+  </Layout>
+);
+
+AutomatedToolingLibrariesFirst.Props = {
+  bgColor: 'white'
+};
+
 export const CSSInJsIsAutomatedTooling = () => (
   <Heading size={2}>
     CSS in JS <Span type="italic">is</Span> automated tooling
   </Heading>
 );
 
-export const AutomatedToolingLibraries = () => (
-  <Layout>
-    <Fill>
-      <Logo
-        backgroundColor="white"
-        textColor="black"
-        maxHeight="20vh"
-        image={require('./images/vue.svg')}
-        title="Vue"
-      />
-    </Fill>
-    <Fill>
-      <Logo
-        backgroundColor="white"
-        textColor="black"
-        maxHeight="20vh"
-        image={require('./images/angular.svg')}
-        title="Angular"
-      />
-    </Fill>
-    <Fill>
-      <Logo
-        backgroundColor="white"
-        textColor="black"
-        image={require('./images/css-modules.png')}
-        maxHeight="25vh"
-      />
-    </Fill>
-  </Layout>
-);
+// export const AutomatedToolingLibraries = () => (
+//   <Layout>
+//     <Fill>
+//       <Logo
+//         backgroundColor="white"
+//         textColor="black"
+//         maxHeight="20vh"
+//         image={require('./images/vue.svg')}
+//         title="Vue"
+//       />
+//     </Fill>
+//     <Fill>
+//       <Logo
+//         backgroundColor="white"
+//         textColor="black"
+//         maxHeight="20vh"
+//         image={require('./images/angular.svg')}
+//         title="Angular"
+//       />
+//     </Fill>
+//     <Fill>
+//       <Logo
+//         backgroundColor="white"
+//         textColor="black"
+//         image={require('./images/css-modules.png')}
+//         maxHeight="25vh"
+//       />
+//     </Fill>
+//   </Layout>
+// );
 
-AutomatedToolingLibraries.Props = {
-  bgColor: 'white'
-};
+// AutomatedToolingLibraries.Props = {
+//   bgColor: 'white'
+// };
 
 export const WhatIsAutomatedTooling = () => (
   <Heading size={2} caps fit>
@@ -303,6 +342,7 @@ export default {
   ranges: [
     { title: 'Vue SFC', loc: [0, 50] },
     { loc: [1, 2] },
+    { loc: [4, 13] },
     { loc: [14, 19] },
     { title: 'scoped attribute 👌' }
   ]
@@ -388,14 +428,26 @@ UseWhatsAvailableToYou.Props = {
   bgDarken: 0.5
 };
 
-// export const AutomatedToolingCodeSandbox = () => (
-//   <Link
-//     href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
-//     target="_blank"
-//   >
-//     <CodeSandboxLogo />
-//   </Link>
-// );
+export const AutomatedToolingCodeSandbox = () => (
+  <Layout>
+    <Fill>
+      <Link
+        href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/15-automated-tooling/vue-example"
+        target="_blank"
+      >
+        <CodeSandboxLogo title="CodeSandbox (Vue)" />
+      </Link>
+    </Fill>
+    <Fill>
+      <Link
+        href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/15-automated-tooling/angular-example"
+        target="_blank"
+      >
+        <CodeSandboxLogo title="CodeSandbox (Angular)" />
+      </Link>
+    </Fill>
+  </Layout>
+);
 
 export const AutomatedToolingConclusion = Conclusion();
 
@@ -410,10 +462,6 @@ Mind.Props = {
   bgImage: require('./images/mind-optimized.jpg'),
   bgDarken: 0.5
 };
-
-export const WearySlide = () => (
-  <Emoji ariaLabel="Weary, concerned" icon={wearyIcon} />
-);
 
 export const ChoiceIsGood = () => (
   <Heading size={2} caps fit>
@@ -610,6 +658,19 @@ JssExample.Props = {
   bgColor: 'code'
 };
 
+export const LinariaLogoSlide = () => (
+  <div>
+    <LinariaLogo />
+    <Heading size={2} caps fit textColor="black">
+      <Span type="underline">Zero runtime</Span> CSS in JS Library
+    </Heading>
+  </div>
+);
+
+LinariaLogoSlide.Props = {
+  bgColor: 'white'
+};
+
 export const OverwhelmedYet = () => (
   <div>
     <Heading size={2} caps fit>
@@ -692,13 +753,151 @@ export const OtherLibrariesWhy = () => (
   </div>
 );
 
-export const LibrariesOutsideReactCodeSandbox = () => (
-  <Link
-    href="https://codesandbox.io/s/github/DSchau/styled-components-units/tree/master/02-your-first-styled-component"
-    target="_blank"
-  >
-    <CodeSandboxLogo />
-  </Link>
+export const OtherLibrariesGeneralApproach = () => (
+  <div>
+    <Heading size={3} textColor="secondary" fit>
+      Apply a unique attribute to element
+    </Heading>
+    <DownIcon color="white" style={{ margin: '1rem' }} />
+    <Heading size={3} textColor="secondary" fit>
+      Prepend selectors with unique class/element
+    </Heading>
+    <DownIcon color="white" style={{ margin: '1rem' }} />
+    <Heading size={4} textColor="secondary" fit>
+      Scoped styles
+    </Heading>
+  </div>
+);
+
+export const OtherLibrariesConcreteExample = () => (
+  <div>
+    <Heading size={2} caps>
+      app.css
+    </Heading>
+    <CodePane
+      lang="css"
+      source={`
+.message {
+  font-family: sans-serif;
+  color: #444;
+}
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+OtherLibrariesConcreteExample.Props = {
+  bgColor: 'code'
+};
+
+export const OtherLibrariesRemember = () => (
+  <div>
+    <Heading size={2} caps fit textColor="black">
+      Remember
+    </Heading>
+    <Heading size={2} caps fit textColor="black">
+      CSS is{' '}
+      <Span type="italic" textColor="red">
+        global
+      </Span>{' '}
+      by default
+    </Heading>
+  </div>
+);
+
+OtherLibrariesRemember.Props = {
+  bgColor: 'white'
+};
+
+export const OtherLibrariesAppLayout = () => <SampleApp />;
+
+OtherLibrariesAppLayout.Props = {
+  bgColor: 'black'
+};
+
+export const OtherLibrariesFooterExample = () => (
+  <div>
+    <Heading size={2} caps>
+      footer.html
+    </Heading>
+    <CodePane
+      lang="markup"
+      source={`
+<footer class="footer">
+  <p class="message">Copyright &copy; 2018 Some Company, Inc.</p>
+</footer>
+    `.trim()}
+      textSize={32}
+    />
+    <div>
+      <footer style={{ backgroundColor: '#0F37FF' }}>
+        <p style={{ color: '#222' }}>
+          Copyright &copy; 2018 Some Company, Inc.
+        </p>
+      </footer>
+    </div>
+  </div>
+);
+
+OtherLibrariesFooterExample.Props = {
+  bgColor: 'code'
+};
+
+export const OtherLibrariesHtmlExample = () => (
+  <div>
+    <Heading size={2} caps>
+      app.html
+    </Heading>
+    <CodePane
+      lang="markup"
+      source={`
+<!-- this is the root component -->
+<div id="app">
+  <p class="message">Hello World!</p>
+  <header-component></header-component>
+  <content-component></content-component>
+  <footer-component></footer-component>
+</div>
+    `.trim()}
+      textSize={32}
+    />
+  </div>
+);
+
+OtherLibrariesHtmlExample.Props = {
+  bgColor: 'code'
+};
+
+export const OtherLibrariesTheMagic = () => (
+  <div>
+    <Heading size={2} caps>
+      <Emoji ariaLabel="magic" icon={sparklesIcon} fontSize={'inherit'} />
+    </Heading>
+    <Layout>
+      <Fill style={{ margin: '1rem' }}>
+        <CodePane
+          lang="markup"
+          source={`
+<div id="app" app-123456>
+  <p class="message">Hello World!</p>
+</div>
+        `.trim()}
+          textSize={32}
+        />
+      </Fill>
+      <Fill style={{ margin: '1rem' }}>
+        <CodePane
+          lang="css"
+          source={`[app-123456] .message {
+  font-family: sans-serif;
+  color: #444;
+}`}
+          textSize={32}
+        />
+      </Fill>
+    </Layout>
+  </div>
 );
 
 export const OtherLibrariesOutsideReactConclusion = Conclusion();
